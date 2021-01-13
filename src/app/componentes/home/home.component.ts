@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
    usuarios=[
      {nombre:"Manolo", apellido:"Lopez"},
      {nombre:"Juan", apellido:"Garcia"},
-     {nombre:"Maria", apellido:"Rodriguez"}
+     {nombre:"jose", apellido:"Rodriguez"}
    ]
    nombreSeleccionado(usuario):void {
      this.usuarioSeleccionado = usuario.nombre + " " + usuario.apellido
