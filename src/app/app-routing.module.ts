@@ -6,6 +6,7 @@ import { HolaComponent } from './componentes/hola/hola.component';
 import { HomeComponent } from './componentes/home/home.component';
 import { LoteriaComponent } from './componentes/loteria/loteria.component';
 import { MultiplicarComponent } from './componentes/multiplicar/multiplicar.component';
+import { TuberiasComponent } from './componentes/tuberias/tuberias.component';
 
 const routes: Routes = [
   {path: "", component:HomeComponent},
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path:"calculadora",component:CalculadoraComponent},
   {path:"multiplicar",component:MultiplicarComponent},
   {path:"hola/:nombre/:apellidos",component:HolaComponent},
+  {path:"tuberias",component:TuberiasComponent},
   {path:"",component:HomeComponent}
 ];
 
