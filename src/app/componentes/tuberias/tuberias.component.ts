@@ -18,6 +18,7 @@ export class TuberiasComponent implements OnInit {
     {nombre: "Sara", apellido:"Garcia", edad:58},
     {nombre: "Robeto", apellido:"Calonge", edad:4}
   ]
+  dni: number =0
   constructor() { }
 
   ngOnInit(): void {

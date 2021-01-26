@@ -11,7 +11,8 @@
 <p>El cuadrado del 5: {{5|numeros:"cuadrado"}}</p>
 <p>La raiz cuadrada de 81: {{81|numeros:"raiz"}}</p>
 <p>Escribe 7:{{7|numeros:"aletras"}}</p>
-<input type="number" id="num">
+<input type="number" placeholder="DNI" [(ngModel)]= "dni">
+<p>El dni con letra es {{dni|dni}}</p>
 
 
 
