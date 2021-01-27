@@ -9,6 +9,11 @@ export class EstructurasComponent implements OnInit {
   verdad : boolean
   edad : number
 
+  num1:number =0
+  num2:number=0
+  operador:string=""
+  operaciones:string[]=['sumar','restar','multiplicar','dividir']
+
   constructor() { }
 
   ngOnInit(): void {

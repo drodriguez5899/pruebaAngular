@@ -1,0 +1,28 @@
+<h1 style="text-align: center;">ARTICULOS</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Descripcion</th>
+            <th>Precio</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let articulo of articulos" (click) = "articuloSeleccionado=articulo">
+            <td>{{articulo.nombre}}</td>
+            <td>{{articulo.descripcion}}</td>
+            <td>{{articulo.precio}}</td>
+        </tr>
+      
+    </tbody>
+</table>
+<input type="text" [(ngModel)] = "articuloNuevo.nombre"> 
+<input type="text" [(ngModel)] = "articuloNuevo.descripcion"> 
+<input type="number" [(ngModel)] = "articuloNuevo.precio"> 
+<button (click)="insertarArticulo()">Insertar Articulo</button>
+<br>
+<input type="text" [(ngModel)] = "articuloSeleccionado.nombre"> 
+<input type="text" [(ngModel)] = "articuloSeleccionado.descripcion"> 
+<input type="number" [(ngModel)] = "articuloSeleccionado.precio"> 
+<button (click)="editarArticulo(articuloSeleccionado)">Editar Articulo</button>
+<button (click)="borrarArticulo(articuloSeleccionado)">Borrar Articulo</button>

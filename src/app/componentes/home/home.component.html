@@ -26,3 +26,6 @@
     </div>
     
 </div>
+<ul>
+    <li (click)="nombreSeleccionado(usuario)" *ngFor="let usuario of usuarios2" >{{usuario.nombre + " " + usuario.apellido}}</li>
+</ul>

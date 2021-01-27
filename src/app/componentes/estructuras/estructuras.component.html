@@ -3,7 +3,6 @@
     <input type="checkbox" id="verdad"[(ngModel)]= "verdad">
 </label>
 <h5> {{verdad? "es verdad" : "Es mentira"}} con Ternario</h5>
-<hr>
 <h5 *ngIf = "verdad;else mentira" >Es verdad con *ngIf</h5>
 <ng-template #mentira> <h5>Es mentira con *ngIf</h5></ng-template>
 <hr>
@@ -32,6 +31,39 @@
         {{primero? "que es el pimer elemento del array":""}}{{ultimo? "que es el ultimo elemento del array":""}}
     </li>
 </ul>
+<br>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Posicion</th>
+            <th>Par/Impar</th>
+            <th>Numero</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let numero of [0,11,22,33,44,55]; let indice=index; let impar=odd; let primero=first; let ultimo=last; let cuenta=count;"
+        [ngClass]="{'text-danger':impar, 'bg-primary':primero}">            
+            <td>{{indice}}</td>
+            <td>{{impar? 'impar':'par'}}</td>
+            <td>{{numero}}</td>
+        </tr>   
+    </tbody>
+</table>
+<hr>
+<input type="number" name="num1" placeholder="numero 1" [(ngModel)]=num1>
+<input type="number" name="num2" placeholder="numero 2" [(ngModel)]=num2>
+<select [(ngModel)] = "operador">
+    <option *ngFor="let operacion of operaciones" [value]="operacion">{{operacion}}</option>
+</select> 
+<div [ngSwitch]="operador">
+    <span *ngSwitchCase = '"sumar"'>{{num1+num2}}</span>
+    <span *ngSwitchCase = '"restar"'>{{num1-num2}}</span>
+    <span *ngSwitchCase = '"multiplicar"'>{{num1*num2}}</span>
+    <span *ngSwitchCase = '"dividir"'>{{num1/num2}}</span>
+    <span *ngSwitchDefault>Selecciona una operacion</span>
+</div>
+
+
 
 
 
