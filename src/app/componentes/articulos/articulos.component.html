@@ -16,13 +16,13 @@
       
     </tbody>
 </table>
-<input type="text" [(ngModel)] = "articuloNuevo.nombre"> 
-<input type="text" [(ngModel)] = "articuloNuevo.descripcion"> 
-<input type="number" [(ngModel)] = "articuloNuevo.precio"> 
-<button (click)="insertarArticulo()">Insertar Articulo</button>
-<br>
-<input type="text" [(ngModel)] = "articuloSeleccionado.nombre"> 
-<input type="text" [(ngModel)] = "articuloSeleccionado.descripcion"> 
-<input type="number" [(ngModel)] = "articuloSeleccionado.precio"> 
+<input type="text" placeholder="Nombre del articulo" [(ngModel)] = "articuloNuevo.nombre"> 
+<input type="text" placeholder="descripcion del articulo" [(ngModel)] = "articuloNuevo.descripcion"> 
+<input type="number" placeholder="precio del articulo" [(ngModel)] = "articuloNuevo.precio"> 
+<button (click)="insertarArticulo()">Insertar Articulo</button> 
+<br><br>
+<input type="text" placeholder="Nombre del articulo" [(ngModel)] = "articuloSeleccionado.nombre"> 
+<input type="text" placeholder="descripcion del articulo" [(ngModel)] = "articuloSeleccionado.descripcion"> 
+<input type="number" placeholder="precio del articulo" [(ngModel)] = "articuloSeleccionado.precio"> 
 <button (click)="editarArticulo(articuloSeleccionado)">Editar Articulo</button>
 <button (click)="borrarArticulo(articuloSeleccionado)">Borrar Articulo</button>

@@ -17,7 +17,7 @@ const routes: Routes = [
   {path:"about", component:AboutComponent},
   {path:"loteria",component:LoteriaComponent},
   {path:"calculadora",component:CalculadoraComponent},
-  {path:"multiplicar",component:MultiplicarComponent},
+  {path:"multiplicar/:factor",component:MultiplicarComponent},
   {path:"hola/:nombre/:apellidos",component:HolaComponent},   
   {path:"tuberias",component:TuberiasComponent},
   {path:"estructuras",component:EstructurasComponent},

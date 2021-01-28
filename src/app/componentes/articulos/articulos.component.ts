@@ -9,6 +9,7 @@ import { Articulos } from 'src/app/clases/articulos';
 export class ArticulosComponent implements OnInit {
   articuloNuevo:Articulos = new Articulos
   articulos:Articulos[] = []
+  indice:number
   articuloSeleccionado:Articulos = new Articulos()
 
   constructor() { }
@@ -16,23 +17,35 @@ export class ArticulosComponent implements OnInit {
   ngOnInit(): void {
     if (localStorage.getItem('articulos')!=null){
       this.articulos = JSON.parse(localStorage.getItem('articulos'))
-    }  
+      this.indice = this.articulos[this.articulos.length-1].id + 1
+    }  else this.indice=0
   }
-  insertarArticulo():void{    
+  insertarArticulo():void{  
+    this.articuloNuevo.id = this.indice
+    this.indice++  
     this.articulos.push(this.articuloNuevo)
     this.articuloNuevo = new Articulos()
     localStorage.setItem('articulos', JSON.stringify(this.articulos)) 
   }
-  editarArticulo(articuloEntrada:Articulos):void{  
-   
+  editarArticulo(articuloEntrada:Articulos):void{ 
+    for(let i in this.articulos){
+      if(this.articulos[i].id==articuloEntrada.id){
+        this.articulos[i]=articuloEntrada
         this.articuloSeleccionado = new Articulos()
-        localStorage.setItem('articulos', JSON.stringify(this.articulos))      
-    
+        localStorage.setItem('articulos', JSON.stringify(this.articulos))
+      }
+    }
   }
   
   borrarArticulo(articuloEntrada:Articulos):void{
-    this.articuloSeleccionado = new Articulos()
-    localStorage.setItem('articulos', JSON.stringify(this.articulos))      
+    for(let i in this.articulos){
+      if(this.articulos[i].id == articuloEntrada.id){
+        this.articulos.splice(parseInt(i),1)
+        this.articuloSeleccionado = new Articulos()
+        localStorage.setItem('articulos',JSON.stringify(this.articulos))
+      }
+    }
+     
     
   }
 }
