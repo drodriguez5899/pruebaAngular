@@ -1,3 +1,4 @@
+import { registerLocaleData } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AboutComponent } from './componentes/about/about.component';
@@ -10,6 +11,7 @@ import { HolaComponent } from './componentes/hola/hola.component';
 import { HomeComponent } from './componentes/home/home.component';
 import { LoteriaComponent } from './componentes/loteria/loteria.component';
 import { MultiplicarComponent } from './componentes/multiplicar/multiplicar.component';
+import { RegistroComponent } from './componentes/registro/registro.component';
 import { TuberiasComponent } from './componentes/tuberias/tuberias.component';
 
 const routes: Routes = [
@@ -24,6 +26,7 @@ const routes: Routes = [
   {path:"formulario",component:FormularioClaseComponent},
   {path:"crud",component:CrudLocalComponent},
   {path:"articulos",component:ArticulosComponent},
+  {path:"registro",component:RegistroComponent},
   {path:"",component:HomeComponent}
 ];
 
