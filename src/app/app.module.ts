@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { LOCALE_ID, NgModule } from '@angular/core';
 import "@angular/common/locales/global/es";
-
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,6 +22,7 @@ import { FormularioClaseComponent } from './componentes/formulario-clase/formula
 import { CrudLocalComponent } from './componentes/crud-local/crud-local.component';
 import { ArticulosComponent } from './componentes/articulos/articulos.component';
 import { RegistroComponent } from './componentes/registro/registro.component';
+import { CrudComponent } from './componentes/crud/crud.component';
 
 @NgModule({
   declarations: [
@@ -41,13 +42,15 @@ import { RegistroComponent } from './componentes/registro/registro.component';
     FormularioClaseComponent,
     CrudLocalComponent,
     ArticulosComponent,
-    RegistroComponent
+    RegistroComponent,
+    CrudComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [{provide: LOCALE_ID, useValue:"es"}],
   bootstrap: [AppComponent]
