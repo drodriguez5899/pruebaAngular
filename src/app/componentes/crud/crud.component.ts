@@ -10,35 +10,89 @@ import { NotasService } from 'src/app/servicios/notas.service';
 })
 export class CrudComponent implements OnInit {
   formNuevo: FormGroup = new FormGroup({
-    titulo: new FormControl('',[Validators.required]),
-    contenido: new FormControl('',[Validators.required]),
-
+    id: new FormControl(''),
+    titulo: new FormControl('',Validators.required),
+    contenido: new FormControl('', Validators.required)
   })
-  notas:Note[]=[]
-
-  constructor(private servicios:NotasService) { }
+  notaNueva: Note = new Note();
+  notaSeleccionada: Note = new Note();
+  notas: Note[]=[];
+  busqueda: string;
+  temporizador: any = null;
+  creada :boolean=false;
+  eliminada :boolean=false;
+  editada :boolean=false;
+  constructor(private servicio:NotasService) { }
 
   ngOnInit(): void {
-    this.obtenerNotas()
-    
+    this.escribirNotas();
   }
-  obtenerNotas():void{
-    this.servicios.leerNotas().subscribe(
-      respuesta => {
-        console.log(respuesta)
-        this.notas = respuesta
+
+  escribirNotas():void{
+    this.servicio.leerNotas().subscribe(
+      respuesta=>{
+        console.log(respuesta);
+        this.notas=respuesta
       },
-      error => console.log(error)
-    )
-  }
-  
-  crearNota(entrada:Note):void{
-    this.servicios.insertarNota(entrada).subscribe(
-      respuesta => {
-        console.log(respuesta)
-        this.obtenerNotas
-      }
+      error=>console.log(error)
     )
   }
 
+  crearNota(entrada:Note): void{
+    this.servicio.insertarNota(entrada).subscribe(
+      respuesta=>{
+        console.log(respuesta);
+        this.formNuevo.reset();
+        this.creada=true;
+        setTimeout(()=>{this.creada=false},3000);
+        this.escribirNotas();
+      },
+      error=>console.log(error)
+    )
+  }
+
+  eliminarNota():void{
+    this.servicio.borrarNota(this.formNuevo.value.id).subscribe(
+      respuesta=>{
+        console.log(respuesta);
+        this.formNuevo.reset();
+        this.eliminada=true;
+        setTimeout(()=>{this.eliminada=false},3000);
+        this.escribirNotas();
+      },
+      error=>console.log(error)     
+    )
+  }
+
+  editarNota():void{
+    this.servicio.editarNota(this.formNuevo.value).subscribe(
+      respuesta=>{
+        console.log(respuesta);
+        this.formNuevo.reset();
+        this.editada=true;
+        setTimeout(()=>{this.editada=false},3000);
+        this.escribirNotas();
+      },
+      error=>console.log(error)
+    )
+  }
+
+  buscarNotas():void{
+    this.servicio.buscarNotas(this.busqueda).subscribe(
+      respuesta=>{
+        console.log(respuesta);
+        this.notas=respuesta;
+      },
+      error=>console.log(error)
+    )
+  }
+
+  buscarConRetraso():void{
+    if(this.temporizador==null){
+      this.temporizador=setTimeout(()=>{
+        this.buscarNotas();
+        this.temporizador=null;
+      },3000);
+    }
+  }
 }

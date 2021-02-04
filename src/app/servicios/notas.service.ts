@@ -27,4 +27,7 @@ export class NotasService {
   borrarNota(id:number):Observable<any>{
     return this.http.delete(url+id)
   }
+  buscarNotas(entrada:string):Observable<any>{
+    return this.http.get(url + '?busqueda=' + entrada)
+  }
 }
