@@ -1,8 +1,12 @@
 import { registerLocaleData } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { UserRouterGuard } from './auth/user-router.guard';
 import { AboutComponent } from './componentes/about/about.component';
 import { ArticulosComponent } from './componentes/articulos/articulos.component';
+import { LoginComponent } from './componentes/auth/login/login.component';
+import { PerfilComponent } from './componentes/auth/perfil/perfil.component';
+import { RegisterComponent } from './componentes/auth/register/register.component';
 import { CalculadoraComponent } from './componentes/calculadora/calculadora.component';
 import { CrudLocalComponent } from './componentes/crud-local/crud-local.component';
 import { CrudComponent } from './componentes/crud/crud.component';
@@ -27,7 +31,9 @@ const routes: Routes = [
   {path:"formulario",component:FormularioClaseComponent},
   {path:"crudlocal",component:CrudLocalComponent},
   {path:"articulos",component:ArticulosComponent},
-  {path:"registro",component:RegistroComponent},
+  {path:"registro",component:RegisterComponent},
+  {path:"login",component:LoginComponent},
+  {path:"perfil",component:PerfilComponent, canActivate:[UserRouterGuard]},
   {path:"crud",component:CrudComponent},
   {path:"",component:HomeComponent}
 ];
