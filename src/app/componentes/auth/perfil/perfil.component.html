@@ -1,1 +1,34 @@
-<p>perfil works!</p>
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">Bienvenido: {{perfil.nombre + " " + perfil.apellidos}}</h4>
+        <p class="card-text">DNI:{{perfil.dni}}</p>
+        <p class="card-text">Email:{{perfil.email}}</p>
+        <p class="card-text">Telefono:{{perfil.telefono}}</p>
+        <button (click)='mostrarEditar=!mostrarEditar'>Editar</button>
+        <button (click)='mostrarEliminar=!mostrarEliminar'>Eliminar</button>
+    </div>
+</div>
+<div class="card"*ngIf='mostrarEditar'>
+    <div class="card-header h5 text-center">Para editar tu perfil</div>
+    <div class="card-body">
+        <form [formGroup]="formPerfil" (submit)="editarPerfil()">
+            <label for="nombre">Nombre</label><input type="text" formControlName="nombre" placeholder="nombre">
+            <label for="apellidos">Apellidos</label><input type="text" formControlName="apellidos" placeholder="apellidos">
+            <label for="password">Contraseña</label><input type="text" formControlName="password" placeholder="password">
+            <label for="email">Email</label><input type="text" formControlName="email" placeholder="email">
+            <label for="telefono">Telefono</label><input type="number" formControlName="telefono" placeholder="telefono">
+            <button type="submit" [disabled]="!formPerfil.valid">Guardar cambios</button>
+            <button (click)='mostrarEditar=!mostrarEditar'>Cancelar</button>
+        </form>        
+        <button (click)='mostrarEditar=!mostrarEditar'>Editar</button>
+    </div>
+</div>
+<div class="card"*ngIf='mostrarEliminar'>
+    <div class="card-header h5 text-center">Para eliminar tu perfil introduce tu email</div>
+    <div class="card-body">
+       <input type="text" [(ngModel)]='inputBorrar' placeholder="email">
+       <button (click)='mostrarEliminar=!mostrarEliminar; inputBorrar="" '>Cancelar</button>
+       <button (click)='eliminarUsuario()' [disabled]='inputBorrar!=perfil.email'>Eliminar</button>
+    </div>
+</div>
+
