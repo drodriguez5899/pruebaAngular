@@ -45,6 +45,10 @@ export class UserService {
   leerToken():string{
     return localStorage.getItem('userToken')
   }
+  listarUsuario():Observable<any>{
+    return this.http.get(url +"list/")
+  }
+  
 
   
 

@@ -79,6 +79,23 @@ export class PerfilComponent implements OnInit {
       this.formImagen.get('imagen').setValue(evento.target.files[0])
     }
   }
+  foto: File
+  tengoFoto(evento):void{
+    if(evento.target.files){
+      this.foto = evento.target.files[0]
+    }
+  }
+  subirFoto():void{
+    const formData = new FormData()
+    formData.append('imagen',this.foto)
+    this.servicioUsuario.subirImagen(formData).subscribe(
+      respuesta => {
+        console.log(respuesta)
+        this.cargarPerfil()
+      },
+      error =>{console.log(error)}
+    )
+  }
 
 
 
