@@ -10,6 +10,7 @@ import { UserService } from 'src/app/servicios/user.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  mensaje:string=''
   formLogin=this.fb.group({    
     password:['',[Validators.required]],
     email:['', [Validators.required, Validators.email]],
@@ -29,7 +30,10 @@ export class LoginComponent implements OnInit {
           this.servicioUsuario.guardarToken(respuesta)
           this.irHacia.navigate(['/perfil'])
         },
-        error => console.log(error)
+        error =>{
+          console.log(error)
+          this.mensaje=error.error.error
+        } 
       )
    
   }

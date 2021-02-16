@@ -23,6 +23,9 @@ export class PerfilComponent implements OnInit {
     email:['', [Validators.required, Validators.email]],
     telefono:[undefined, [telefonoValido()]],
   })
+  formImagen = this.fb.group({
+    imagen:['',Validators.required]
+  })
 
   constructor(private fb:FormBuilder, private servicioUsuario:UserService, private irHacia:Router) { }
 
@@ -59,6 +62,22 @@ export class PerfilComponent implements OnInit {
       },
       error => console.log(error)
     )
+  }
+  subirImagen():void{
+    const formData = new FormData()
+    formData.append('imagen',this.formImagen.get('imagen').value)
+    this.servicioUsuario.subirImagen(formData).subscribe(
+      respuesta => {
+        console.log(respuesta)
+        this.cargarPerfil()
+      },
+      error =>{console.log(error)}
+    )
+  }
+  cambiaImagen(evento):void{
+    if(evento.target.files){
+      this.formImagen.get('imagen').setValue(evento.target.files[0])
+    }
   }
 
 
