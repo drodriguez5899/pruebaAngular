@@ -8,6 +8,7 @@ import { UserService } from 'src/app/servicios/user.service';
   styleUrls: ['./navegacion.component.css']
 })
 export class NavegacionComponent implements OnInit {
+  estiloactivo: string ="active text-light sombra"
   constructor(private servicioUsuario:UserService, private irHacia:Router) { }
 
   ngOnInit(): void {

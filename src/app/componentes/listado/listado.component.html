@@ -28,7 +28,7 @@
           <tr (click)='this.userSel = user; formMensaje.patchValue({idDestinatario:user.id})' *ngFor='let user of usuarios'>
             <td>{{user.nombre}}</td>
             <td>{{user.email}}</td>
-            <td><img width='40px' src="{{user.imgSrc}}" alt=""></td>
+            <td><img src="{{user.imgSrc? user.imgSrc : 'assets/imagenes/no.jpg'}}" width='40px'></td>
           </tr>
         </tbody>
       </table>

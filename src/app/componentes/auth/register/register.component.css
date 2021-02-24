@@ -27,7 +27,12 @@ form input[type="email"]{
 }
 #titulo{
     text-align: center;
-    transform: translate(2%, 2%);
+	transform: translate(2%, 2%);
+	margin: 40px;
+	color: red;
+	border: 2px solid red;
+	background-color: skyblue;
+	padding: 25px;
  
     
 }

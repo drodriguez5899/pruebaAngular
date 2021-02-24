@@ -1,11 +1,10 @@
 <div style="margin: 40px;" class="card text-center">
-    <div class="card-header">
+    <div style="background-color: lightsalmon;" class="card-header">
       <h1>Presentacion</h1>
     </div>
     <div class="card-body">
-        <label for="nombre">Nombre: </label><input type="text"[(ngModel)]=nombre><br>
-        <label for="apellidos">Apellidos: </label><input type="text"[(ngModel)]=apellidos> <br>
+        <label for="nombre"> <b>Nombre:</b></label><input type="text"[(ngModel)]=nombre><br>
+        <label for="apellidos"> <b>Apellidos:</b> </label><input type="text"[(ngModel)]=apellidos> <br>
         <button class="button" (click)="llevame()">IR</button>      
-    </div>
-  
+    </div>  
 </div>

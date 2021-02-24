@@ -1,0 +1,13 @@
+#bloque{
+    text-align: center;
+    border: 2px solid red;
+    padding: 20px;
+    background-color: aqua;
+    margin: 40px;
+}
+ul{
+    text-align: center;
+    border: 2px solid red;
+    list-style:none;
+    background-color: lightblue;
+}

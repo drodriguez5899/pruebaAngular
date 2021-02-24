@@ -1,18 +1,38 @@
-<p>Covertir a mayusculas: {{usuario |uppercase}}</p>
-<p>Convertir a minusculas: {{mes |lowercase}}</p>
-<p>La primera letra de cada palabra en mayusculas: {{texto | titlecase}}</p>
-<p>Fecha: {{fecha |date}}</p>
-<p>Fecha editada: {{fecha |date:"dd/MM/yyyy"}}</p>
-<p>Fecha: {{fecha |date:"hh:mm:ss"}}</p>
-<p>Dinero: {{dinero |currency: "EUR"}}</p>
-<p>Numero redondeado: {{numero_pi |number:".3"}}</p>
-<p>Seleccionar elementos de un array: {{preposiciones |slice:2:5}}</p>
-<p>Convertir objeto a formato json: {{usuarios |json}}</p>
-<p>El cuadrado del 5: {{5|numeros:"cuadrado"}}</p>
-<p>La raiz cuadrada de 81: {{81|numeros:"raiz"}}</p>
-<p>Escribe 7:{{7|numeros:"aletras"}}</p>
-<input type="number" placeholder="DNI" [(ngModel)]= "dni">
-<p>El dni con letra es {{dni|dni}}</p>
+<div style="margin: 40px;" class="card">
+    <div style=" background-color: lightsalmon;" class="card-header">
+      <h1 style="text-align: center;">Tuberias Prestablecidas</h1>
+    </div>
+    <div class="card-body">
+        <p><b>Covertir a mayusculas: </b> {{usuario |uppercase}}</p>
+        <p> <b>Convertir a minusculas:</b> {{mes |lowercase}}</p>
+        <p> <b>La primera letra de cada palabra en mayusculas:</b> {{texto | titlecase}}</p>
+        <p><b> Fecha: </b> {{fecha |date}}</p>
+        <p> <b>Fecha editada:</b> {{fecha |date:"dd/MM/yyyy"}}</p>
+        <p><b>Fecha: </b> {{fecha |date:"hh:mm:ss"}}</p>
+        <p><b>Dinero: </b> {{dinero |currency: "EUR"}}</p>
+        <p>  <b> Numero redondeado:</b>{{numero_pi |number:".3"}}</p>
+        <p><b>Seleccionar elementos de un array: </b> {{preposiciones |slice:2:5}}</p>
+        <p> <b>Convertir objeto a formato json:</b> {{usuarios |json}}</p>            
+    </div>
+    <hr>
+    <div class="card-header">
+        <h1 style="text-align: center;">Tuberias Personalizadas</h1>
+    </div>
+    <div class="card-body">
+        <p> <b>El cuadrado del 5:</b> {{5|numeros:"cuadrado"}}</p>
+        <p> <b>La raiz cuadrada de 81:</b> {{81|numeros:"raiz"}}</p>
+        <p><b>Escribe 7: </b>{{7|numeros:"aletras"}}</p>
+        <label for="din"><b>Introduzca tu dni: </b></label> <br>
+        <input type="number" placeholder="DNI" [(ngModel)]= "dni"><br> <br>        
+        <div class="alert alert-success" role="alert">
+            <h3> El dni con letra es {{dni|dni}}</h3>               
+        </div>
+                    
+    </div>
+  
+</div>
+
+
 
 
 

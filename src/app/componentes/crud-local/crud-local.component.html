@@ -1,33 +1,41 @@
-<h1 style="text-align: center;">Notas</h1><br>
-<div class="form-group">
-    <label for="exampleFormControlInput1">Titulo de la nota</label>
-    <input type="text" class="form-control" [(ngModel)] = "notaNueva.titulo"> 
-  </div>
-  <div class="form-group">
-    <label for="exampleFormControlSelect1">Contenido de la nota</label>
-    <input type="text"  class="form-control" [(ngModel)] = "notaNueva.contenido">     
-  </div>
-  <button (click)="insertarNota()">Insertar Nota</button>
-  <table class="table">
-    <thead>
-        <tr>
-            <th>id</th>
-            <th>Titulo</th>
-            <th>Contenido</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let nota of notas" (click)="notaSeleccionada=nota">
-            <td>{{nota.id}}</td>
-            <td>{{nota.titulo}}</td>
-            <td>{{nota.contenido}}</td>
-        </tr>        
-    </tbody>
-</table>      
-  
-<br>
-<input type="text" [(ngModel)]= "notaSeleccionada.titulo">
-<input type="text" [(ngModel)]= "notaSeleccionada.contenido">
-<button (click)="editarNota(notaSeleccionada)">Editar nota</button>
-<button (click)="borrarNota(notaSeleccionada)">Borrar nota</button>
+<div style="margin: 40px;" class="card ">
+    <div style="background-color: lightsalmon;" class="card-header">
+        <h1 style="text-align: center;">Notas</h1><br>
+    </div>
+    <div class="card-body">
+        <div class="form-group">
+            <label for="exampleFormControlInput1"><b>Titulo de la nota </b></label>
+            <input type="text" class="form-control" [(ngModel)] = "notaNueva.titulo"> 
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlSelect1"><b>Contenido de la nota </b></label>
+            <input type="text"  class="form-control" [(ngModel)] = "notaNueva.contenido">     
+        </div>
+        <button class="button" (click)="insertarNota()">Insertar Nota</button> <br><br>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>Titulo</th>
+                    <th>Contenido</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let nota of notas" (click)="notaSeleccionada=nota">
+                    <td>{{nota.id}}</td>
+                    <td>{{nota.titulo}}</td>
+                    <td>{{nota.contenido}}</td>
+                </tr>        
+            </tbody>
+        </table>      
+          
+        <br>
+        <input type="text" [(ngModel)]= "notaSeleccionada.titulo">
+        <input type="text" [(ngModel)]= "notaSeleccionada.contenido">
+        <button class="button" (click)="editarNota(notaSeleccionada)">Editar nota</button>
+        <button class="button" (click)="borrarNota(notaSeleccionada)">Borrar nota</button>           
+    </div>  
+</div>
+
+
 

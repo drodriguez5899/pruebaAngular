@@ -1,4 +1,4 @@
-<div class="card">
+<div style="margin: 40px;" class="card">
     <div class="card-body">
         <h4 class="card-title">Bienvenido: {{perfil.nombre + " " + perfil.apellidos}}</h4>
         <p class="card-text">DNI:{{perfil.dni}}</p>
@@ -6,8 +6,18 @@
         <p class="card-text">Telefono:{{perfil.telefono}}</p>
         <img src="{{perfil.imgSrc}}" width="200px">
         <hr>
-        <button (click)='mostrarEditar=!mostrarEditar'>Editar</button>
-        <button (click)='mostrarEliminar=!mostrarEliminar'>Eliminar</button>
+        <button  class="button" (click)='mostrarEditar=!mostrarEditar'>Editar</button>
+        <button  class="button" (click)='mostrarEliminar=!mostrarEliminar'>Eliminar</button>
+        <hr>
+        <form [formGroup]='formImagen' (ngSubmit)='subirImagen()'>
+            <input type="file" formControlName='imagen' (change)='cambiaImagen($event)'>
+            <button class="button" type="submit">  Subir imagen de perfil</button>
+        </form>
+        <br>
+        <input type="file"(change)='tengoFoto($event)'>
+        <button class="button" type="button" (click)='subirFoto()'>Subir imagenes por parametro</button>
+        
+        
     </div>
 </div>
 <div class="card"*ngIf='mostrarEditar'>
@@ -33,11 +43,3 @@
        <button (click)='eliminarUsuario()' [disabled]='inputBorrar!=perfil.email'>Eliminar</button>
     </div>
 </div>
-<form [formGroup]='formImagen' (ngSubmit)='subirImagen()'>
-    <input type="file" formControlName='imagen' (change)='cambiaImagen($event)'>
-    <button type="submit">  Subir imagen de perfil</button>
-</form>
-<br><br>
-<input type="file"(change)='tengoFoto($event)'>
-<button type="button" (click)='subirFoto()'>Subir imagenes por parametro</button>
-

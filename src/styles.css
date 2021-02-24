@@ -1,18 +1,16 @@
-.button{
+.button {
+    display: inline-block;
+    padding: 15px 25px;
+    font-size: 15px;
+    cursor: pointer;
+    text-align: center;
     text-decoration: none;
-    padding: 3px;
-    padding-left: 10px;
-    padding-right: 10px;
-    font-family: helvetica;
-    font-weight: 300;
-    font-size: 25px;
-    font-style: italic;
-    color: #006505;
+    outline: none;
+    color: #fff;
     background-color:cornflowerblue;
-    border-radius: 15px;
-    border: 3px double #006505;
-}
-.button:hover{
-    opacity: 0.6;
-    text-decoration: none;
+    border: none;
+    border-radius: 10px;
   }
+  
+  .button:hover {background-color:darkblue}
+  

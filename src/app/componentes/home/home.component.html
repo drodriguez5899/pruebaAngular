@@ -1,7 +1,7 @@
-<div class="jumbotron">
+<div style="margin: 40px;" class="jumbotron">
     <div class="container">
-        <h1 class="display-3">Jumbo heading</h1>
-        <p class="lead">Jumbo helper text</p>
+        <h1 class="display-3">Bienvenida a mi pagina web</h1>
+        <p class="lead">En ella encontraras diferentes componentes y funciones</p>
         <hr class="my-2">
         <p>More info</p>
         <p class="lead">
@@ -24,8 +24,9 @@
         </ul>
         <h3>{{usuarioSeleccionado}}</h3>
     </div>
+    <ul>
+        <li (click)="nombreSeleccionado(usuario)" *ngFor="let usuario of usuarios2" >{{usuario.nombre + " " + usuario.apellido}}</li>
+    </ul>
     
 </div>
-<ul>
-    <li (click)="nombreSeleccionado(usuario)" *ngFor="let usuario of usuarios2" >{{usuario.nombre + " " + usuario.apellido}}</li>
-</ul>
+
