@@ -1,0 +1,8 @@
+#bloque{
+    margin: 40px;
+    border: 2px solid red;
+    border-radius: 20px;
+    background-color:lightblue;
+    text-align: center;
+    padding: 30px;
+}

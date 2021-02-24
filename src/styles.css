@@ -1,1 +1,18 @@
-/* You can add global styles to this file, and also import other style files */
+.button{
+    text-decoration: none;
+    padding: 3px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-family: helvetica;
+    font-weight: 300;
+    font-size: 25px;
+    font-style: italic;
+    color: #006505;
+    background-color:cornflowerblue;
+    border-radius: 15px;
+    border: 3px double #006505;
+}
+.button:hover{
+    opacity: 0.6;
+    text-decoration: none;
+  }
