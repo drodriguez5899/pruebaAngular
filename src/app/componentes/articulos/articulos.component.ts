@@ -11,6 +11,8 @@ export class ArticulosComponent implements OnInit {
   articulos:Articulos[] = []
   indice:number
   articuloSeleccionado:Articulos = new Articulos()
+  activado:boolean=false
+  mensaje:string
 
   constructor() { }
 
@@ -26,6 +28,8 @@ export class ArticulosComponent implements OnInit {
     this.articulos.push(this.articuloNuevo)
     this.articuloNuevo = new Articulos()
     localStorage.setItem('articulos', JSON.stringify(this.articulos)) 
+    this.mensaje="Se ha creado un nuevo articulo"
+    this.activado=true
   }
   editarArticulo(articuloEntrada:Articulos):void{ 
     for(let i in this.articulos){
@@ -33,6 +37,8 @@ export class ArticulosComponent implements OnInit {
         this.articulos[i]=articuloEntrada
         this.articuloSeleccionado = new Articulos()
         localStorage.setItem('articulos', JSON.stringify(this.articulos))
+        this.mensaje="Se ha editado el articulo correctamente"
+        this.activado=true
       }
     }
   }
@@ -43,6 +49,8 @@ export class ArticulosComponent implements OnInit {
         this.articulos.splice(parseInt(i),1)
         this.articuloSeleccionado = new Articulos()
         localStorage.setItem('articulos',JSON.stringify(this.articulos))
+        this.mensaje="Se ha borrado el articulo correctamente"
+        this.activado=true
       }
     }
      

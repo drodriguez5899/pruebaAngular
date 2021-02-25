@@ -6,7 +6,7 @@
     <div class="container">  
       <div class="row">
         <div class="col">
-          <h3>Formulario con FormGroup</h3>
+          <h3 style="font-family: 'Libre Baskerville', serif;">Formulario con FormGroup</h3>
           <form [formGroup]="formNuevo" (ngSubmit)='crearNota(formNuevo.value)' action="">
             <input type="text" class="form-control" formControlName="titulo" placeholder="titulo">
             <input type="text" class="form-control" formControlName="contenido" placeholder="contenido">
@@ -20,7 +20,7 @@
           </form>
         </div>
         <div class="col">
-          <h3>Formulario con ngModel</h3>
+          <h3 style="font-family: 'Libre Baskerville', serif;">Formulario con ngModel</h3>
           <input class="form-control" type="text" [(ngModel)]="notaNueva.titulo" placeholder="titulo">
           <input class="form-control" type="text" [(ngModel)]="notaNueva.contenido" placeholder="contenido">
           <button class="btn btn-primary" (click)="crearNota(notaNueva)" >Inertar nota</button>

@@ -29,6 +29,7 @@ export class LoginComponent implements OnInit {
           console.log(respuesta)
           this.servicioUsuario.guardarToken(respuesta)
           this.irHacia.navigate(['/perfil'])
+          alert("has iniciado sesion")
         },
         error =>{
           console.log(error)

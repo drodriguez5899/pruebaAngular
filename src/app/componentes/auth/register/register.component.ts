@@ -11,9 +11,9 @@ import { dniValido, telefonoValido } from 'src/app/validaciones/validaciones';
 })
 export class RegisterComponent implements OnInit {
   formRegister=this.fb.group({
-    nombre:[''],
-    apellidos:[''],
-    password:['',[Validators.required, Validators.minLength(4)]],
+    nombre:['',[Validators.required, Validators.minLength(4)]],
+    apellidos:['',[Validators.required, Validators.minLength(4)]],
+    password:['',[Validators.required, Validators.minLength(8)]],
     password2:['',[Validators.required]],
     email:['', [Validators.required, Validators.email]],
     telefono:[undefined, [telefonoValido()]],
@@ -31,11 +31,19 @@ export class RegisterComponent implements OnInit {
           console.log(respuesta)
           this.servicioUsuario.guardarToken(respuesta)
           this.irHacia.navigate(['/perfil'])
+          alert('Te Has registrado correctamente')
 
         },
         error => console.log(error)
       )
     } else alert('Las contraseñas no coinciden') 
   }
+  get dni1(){return this.formRegister.get("dni")}
+  get nombre1(){return this.formRegister.get("nombre")}
+  get apellidos1(){return this.formRegister.get("apellidos")}
+  get password1(){return this.formRegister.get("password")}
+  get email1(){return this.formRegister.get("email")}
+  get telefono1(){return this.formRegister.get("telefono")}
+  get password2(){return this.formRegister.get("password2")}
 
 }

@@ -11,6 +11,7 @@ export class HomeComponent implements OnInit, OnDestroy{
    x: number =0
    y: number=0
    usuarioSeleccionado
+   activado:boolean=false;
    letras: string[] = ["a","b","c"]
    usuarios=[
      {nombre:"Manolo", apellido:"Lopez"},
@@ -26,6 +27,7 @@ export class HomeComponent implements OnInit, OnDestroy{
    usuario3: Usuario = new Usuario("Regina","Marin")
    nombreSeleccionado(usuario):void {
      this.usuarioSeleccionado = usuario.nombre + " " + usuario.apellido
+     this.activado=true;
   } 
     
   constructor() { }

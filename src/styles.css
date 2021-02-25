@@ -6,11 +6,17 @@
     text-align: center;
     text-decoration: none;
     outline: none;
-    color: #fff;
+    color: red;
     background-color:cornflowerblue;
     border: none;
     border-radius: 10px;
+    font-family: 'Fjalla One', sans-serif;
   }
   
   .button:hover {background-color:darkblue}
-  
+  .card-header{
+    font-family: 'Stick', sans-serif;
+  }
+  b{
+    font-family: 'Akaya Kanadaka', cursive;
+  }

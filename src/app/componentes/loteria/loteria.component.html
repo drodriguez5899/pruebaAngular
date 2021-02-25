@@ -5,15 +5,25 @@
     <div class="card-body">
         <app-generar-loteria #numero1></app-generar-loteria>
         <app-generar-loteria #numero2></app-generar-loteria>          
-        <p>  {{numero1.digito}}{{numero2.digito}}</p>      
+        <p>  {{numero1.digito}}{{numero2.digito}}</p>
+
         <button class="button" (click)="numero1.obtenAleatorio();numero2.obtenAleatorio()">Dame un numero</button> <br> <br>
-        <div  *ngIf="numero1.digito&&(numero1.digito==numero2.digito);else manolito" class="alert alert-warning" role="alert">
-            <p >Premiooo</p>
+
+        <div  *ngIf="numero1.digito&&(numero1.digito==numero2.digito);else manolito" class="alert alert-warning" role="alert">        
+            <p > <b>Premiooo</b></p>
+            <img src="https://blog.atperson.com/hubfs/Imported_Blog_Media/descarga.jpg" alt="">
         </div>      
         <ng-template #manolito>
-            <div class="alert alert-danger" role="alert">
-                <p>SIGUE JUGANDO</p>
-             </div>                
+            <div *ngIf="numero1.digito;else primeraJugada" class="alert alert-danger" role="alert">
+                <p><b>SIGUE JUGANDO </b></p>
+                <img width="300px" height="200px" src="https://img.vixdata.io/pd/jpg-large/es/sites/default/files/btg/al-fin-tendremos-el-boton-de-no-me-gusta-facebook-prueba-nuevas-formas-de-expresar-aprobacion-o-rechazo-y-el-uso-de-emoticones-1.jpg" alt="">
+             </div>
+            <ng-template #primeraJugada>
+                <div class="alert alert-info" role="alert">
+                    <p class="h3 text-center"> <b> Presione el botón para comenzar</b></p> 
+                </div>
+                
+            </ng-template>                
         </ng-template> 
     
         

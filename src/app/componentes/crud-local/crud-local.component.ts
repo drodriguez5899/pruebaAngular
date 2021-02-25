@@ -10,6 +10,8 @@ export class CrudLocalComponent implements OnInit {
   notaNueva:Nota = new Nota
   notas: Nota []=[]
   indice:number
+  mensaje:string
+  activado:boolean=false
   notaSeleccionada: Nota = new Nota()
 
   constructor() { }
@@ -25,7 +27,9 @@ export class CrudLocalComponent implements OnInit {
     this.indice++
     this.notas.push(this.notaNueva)
     this.notaNueva = new Nota()
-    localStorage.setItem('crudLocal', JSON.stringify(this.notas)) 
+    localStorage.setItem('crudLocal', JSON.stringify(this.notas))
+    this.mensaje="Se ha creado una nueva nota" 
+    this.activado=true
   }
   editarNota(notaEntrada:Nota):void{
     for(let i in this.notas){
@@ -33,6 +37,8 @@ export class CrudLocalComponent implements OnInit {
         this.notas[i]=notaEntrada
         this.notaSeleccionada = new Nota()
         localStorage.setItem('crudLocal', JSON.stringify(this.notas))
+        this.mensaje="Se ha editado la nota correctamente" 
+        this.activado=true
       }
     }
   }
@@ -43,6 +49,8 @@ export class CrudLocalComponent implements OnInit {
           this.notas.splice(parseInt(i),1)
           this.notaSeleccionada = new Nota()
           localStorage.setItem('crudLocal',JSON.stringify(this.notas))
+          this.mensaje="Se ha borrado la nota correctamente" 
+          this.activado=true
         }
       }
     }

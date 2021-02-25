@@ -3,6 +3,9 @@
         <h1 style="text-align: center;">Notas</h1><br>
     </div>
     <div class="card-body">
+        <div *ngIf='activado && mensaje!=null' class="alert alert-primary" role="alert">
+            {{mensaje}}
+        </div>
         <div class="form-group">
             <label for="exampleFormControlInput1"><b>Titulo de la nota </b></label>
             <input type="text" class="form-control" [(ngModel)] = "notaNueva.titulo"> 

@@ -14,7 +14,7 @@
                 <a class="nav-link" routerLink = '/loteria'>Loteria</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" routerLink = '/calculadora'>Calculadora</a>
+                <a class="nav-link" routerLink = '/calculadora'> <i class="fas fa-calculator"> Calculadora</i></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" routerLink = '/tuberias'>Tuberias</a>
@@ -26,7 +26,7 @@
                 <a class="nav-link" routerLink = '/formulario'>Formulario</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" routerLink = '/crudlocal'>Crud Local</a>
+                <a class="nav-link" routerLink = '/crudlocal'><i class="far fa-sticky-note"> Crud Local</i></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" routerLink = '/crud'>Crud </a>
@@ -34,9 +34,7 @@
             <li class="nav-item">
                 <a class="nav-link" routerLink = '/articulos'>Articulos</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" routerLink = '/registro'>Registro</a>
-            </li>
+           
        
          
         </ul>
@@ -52,13 +50,13 @@
 
             <ng-template #salir>
                 <li class="nav-item">
-                    <a class="nav-link" routerLink = '/perfil'>Perfil</a>
+                    <a class="nav-link" routerLink = '/perfil'> <i class="fas fa-user"> Perfil</i> </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link"  routerLink = '/listado'> <i routerLinkActive=" fa-spin" class="fas fa-users"></i> Listar perfiles</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link"(click)="doLogout()" routerLink='.'>Logout</a>
+                    <a class="nav-link"(click)="doLogout()" routerLink='.'> <i class="fas fa-sign-out-alt"> Logout</i></a>
                 </li>
             </ng-template>
            

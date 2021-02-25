@@ -3,6 +3,9 @@
       <h1 style="text-align: center">ARTICULOS</h1>
     </div>
     <div class="card-body">
+        <div *ngIf='activado && mensaje!=null' class="alert alert-primary" role="alert">
+            {{mensaje}}
+        </div>
         <div class="form-group">
             <label for="exampleFormControlInput1"><b>Nombre del articulo </b></label>
             <input type="text" class="form-control"  placeholder="Nombre del articulo" [(ngModel)] = "articuloNuevo.nombre"> 
