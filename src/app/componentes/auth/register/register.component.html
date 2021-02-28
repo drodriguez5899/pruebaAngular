@@ -1,6 +1,9 @@
     <div id="titulo">
         <h1>Registro</h1>
     </div>
+    <div class="alert alert-danger m-n2" role="alert" *ngIf="mensaje && !formRegister.untouched && !activado && formRegister.valid">
+        <strong>{{mensaje}}</strong>
+      </div>
     <div *ngIf = "nombre1.invalid && (nombre1.dirty || nombre1.touched)" class="alert alert-danger">
         <div *ngIf="nombre1.errors.required"><p>El nombre es requerido</p></div>
         <div *ngIf="nombre1.errors.minlength"><p>nombre tiene que tener al menos 4 caracteres</p></div>

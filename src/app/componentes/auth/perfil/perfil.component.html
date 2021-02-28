@@ -3,6 +3,12 @@
       <h1 style="text-align: center;">Bienvenido: {{perfil.nombre + " " + perfil.apellidos}}</h1>
     </div>
     <div class="card-body">
+        <div *ngIf='activado && mensaje!=null' class="alert alert-primary" role="alert">
+            {{mensaje}}
+        </div>
+        <div class="alert alert-danger" role="alert"*ngIf='mensaje2'>
+            <strong>{{mensaje2}}</strong>
+        </div>
         <p class="card-text"><b>DNI: </b> {{perfil.dni}}</p>
         <p class="card-text"><b>Email: </b> {{perfil.email}}</p>
         <p class="card-text"> <b>Telefono: </b>{{perfil.telefono}}</p>

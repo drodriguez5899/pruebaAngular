@@ -1,3 +1,4 @@
+import { error } from '@angular/compiler/src/util';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -19,6 +20,8 @@ export class RegisterComponent implements OnInit {
     telefono:[undefined, [telefonoValido()]],
     dni:['',[Validators.required, dniValido()]]
   })
+  mensaje: string =''
+  activado:boolean=false
 
   constructor(private fb:FormBuilder, private servicioUsuario:UserService, private irHacia:Router) { }
 
@@ -30,11 +33,16 @@ export class RegisterComponent implements OnInit {
         respuesta => {
           console.log(respuesta)
           this.servicioUsuario.guardarToken(respuesta)
-          this.irHacia.navigate(['/perfil'])
+          this.irHacia.navigate(['/perfil'])        
+          this.activado=true
           alert('Te Has registrado correctamente')
 
         },
-        error => console.log(error)
+        error =>{
+          console.log(error)
+          this.mensaje = error.error.error
+        }
+       
       )
     } else alert('Las contraseñas no coinciden') 
   }

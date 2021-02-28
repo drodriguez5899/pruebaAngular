@@ -16,6 +16,9 @@ export class PerfilComponent implements OnInit {
   mostrarEditar: boolean=false
   mostrarEliminar: boolean=false
   inputBorrar: string = ''
+  mensaje:string
+  mensaje2:string
+  activado:boolean=false
   formPerfil=this.fb.group({
     nombre:[''],
     apellidos:[''],
@@ -49,8 +52,14 @@ export class PerfilComponent implements OnInit {
         console.log(respuesta)
         this.cargarPerfil()
         this.mostrarEditar = false
+        this.activado= true
+        this.mensaje="se ha editado correctamente"
+
       },
-      error => console.log(error)
+      error =>{
+        console.log(error)
+        this.mensaje2=error.error.error
+      } 
     )
   }
   eliminarUsuario():void{
@@ -59,8 +68,13 @@ export class PerfilComponent implements OnInit {
         console.log(respuesta)
         this.servicioUsuario.logOut()
         this.irHacia.navigate(['/login'])
+        this.activado= true
+        this.mensaje="se ha eliminado correctamente"
       },
-      error => console.log(error)
+      error =>{
+        console.log(error)
+        this.mensaje2=error.error.error
+      } 
     )
   }
   subirImagen():void{
@@ -70,6 +84,8 @@ export class PerfilComponent implements OnInit {
       respuesta => {
         console.log(respuesta)
         this.cargarPerfil()
+        this.activado= true
+        this.mensaje="se ha subido una imagen correctamente"
       },
       error =>{console.log(error)}
     )
@@ -77,6 +93,8 @@ export class PerfilComponent implements OnInit {
   cambiaImagen(evento):void{
     if(evento.target.files){
       this.formImagen.get('imagen').setValue(evento.target.files[0])
+      this.activado= true
+        this.mensaje="se ha ha cambiado la imagen correctamente"
     }
   }
   foto: File
