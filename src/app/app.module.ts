@@ -29,6 +29,8 @@ import { RegisterComponent } from './componentes/auth/register/register.componen
 import { PerfilComponent } from './componentes/auth/perfil/perfil.component';
 import { EnviartokenInterceptor } from './auth/enviartoken.interceptor';
 import { ListadoComponent } from './componentes/listado/listado.component';
+import { GraficaComponent } from './componentes/grafica/grafica.component';
+import { MapaComponent } from './componentes/mapa/mapa.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +55,9 @@ import { ListadoComponent } from './componentes/listado/listado.component';
     LoginComponent,
     RegisterComponent,
     PerfilComponent,
-    ListadoComponent
+    ListadoComponent,
+    GraficaComponent,
+    MapaComponent
   ],
   imports: [
     BrowserModule,

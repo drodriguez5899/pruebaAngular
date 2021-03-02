@@ -12,10 +12,12 @@ import { CrudLocalComponent } from './componentes/crud-local/crud-local.componen
 import { CrudComponent } from './componentes/crud/crud.component';
 import { EstructurasComponent } from './componentes/estructuras/estructuras.component';
 import { FormularioClaseComponent } from './componentes/formulario-clase/formulario-clase.component';
+import { GraficaComponent } from './componentes/grafica/grafica.component';
 import { HolaComponent } from './componentes/hola/hola.component';
 import { HomeComponent } from './componentes/home/home.component';
 import { ListadoComponent } from './componentes/listado/listado.component';
 import { LoteriaComponent } from './componentes/loteria/loteria.component';
+import { MapaComponent } from './componentes/mapa/mapa.component';
 import { MultiplicarComponent } from './componentes/multiplicar/multiplicar.component';
 import { RegistroComponent } from './componentes/registro/registro.component';
 import { TuberiasComponent } from './componentes/tuberias/tuberias.component';
@@ -37,6 +39,8 @@ const routes: Routes = [
   {path:"perfil",component:PerfilComponent, canActivate:[UserRouterGuard]},
   {path:"crud",component:CrudComponent},
   {path:"listado",component:ListadoComponent},
+  {path:"grafica",component:GraficaComponent},
+  {path:"mapa",component:MapaComponent},
   {path:"",component:HomeComponent}
 ];
 
