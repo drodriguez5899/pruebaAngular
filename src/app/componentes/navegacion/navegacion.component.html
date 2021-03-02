@@ -1,40 +1,28 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="dropdown">
-    <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      <i class="fas fa-bars"></i>
-    </button>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-       
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav flex-column">
-            <li class="nav-item active">
-              <a class="nav-link" routerLink = ''>Inicio <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Destacados</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Otros</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Favoritos</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Foro</a>
-            </li>
-                     
-          </ul>
-        </div>
-      </nav>
-      
-              
+    <input type="checkbox" id="abrir-cerrar" name="abrir-cerrar" value="">
+    <label for="abrir-cerrar">&#9776; <span class="abrir"></span><span class="cerrar"></span></label>
+    <div id="sidebar" class="sidebar">
+        <ul class="menu">
+          <li class="nav-item active">
+            <a class="nav-link" routerLink = ''>Inicio <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Destacados</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Otros</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Favoritos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Foro</a>
+          </li>
+                 
+        </ul>
     </div>
-   
     
 </div>
  
@@ -70,13 +58,9 @@
             <a class="nav-link"(click)="doLogout()" routerLink='.'> <i class="fas fa-sign-out-alt"> Logout</i></a>
         </li>
         </ng-template>
-            
-         
-        
-           
-       
       </ul>
       
       
     </div>
   </nav>
+ 

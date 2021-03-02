@@ -33,8 +33,7 @@ export class RegistroComponent implements OnInit {
         respuesta =>{
           console.log(respuesta)
           this.servicioUsuario.guardarToken(respuesta)
-          this.irHacia.navigate(['perfil'])
-          this.activado=true
+          
           alert('Te Has registrado correctamente')
         },
         error =>{
