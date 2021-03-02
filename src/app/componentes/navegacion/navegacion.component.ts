@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserService } from 'src/app/servicios/user.service';
+import { UsuariosService } from 'src/app/servicios/usuarios.service';
 
 @Component({
   selector: 'app-navegacion',
@@ -8,11 +8,12 @@ import { UserService } from 'src/app/servicios/user.service';
   styleUrls: ['./navegacion.component.css']
 })
 export class NavegacionComponent implements OnInit {
-  estiloactivo: string ="active text-light sombra"
-  constructor(private servicioUsuario:UserService, private irHacia:Router) { }
+
+  constructor(private servicioUsuario:UsuariosService, private irHacia:Router) { }
 
   ngOnInit(): void {
   }
+
   doLogout():void{
     this.servicioUsuario.logOut()
     this.irHacia.navigate(['/login'])
@@ -20,5 +21,6 @@ export class NavegacionComponent implements OnInit {
   fnLogged():boolean{
     return this.servicioUsuario.isLogged()
   }
+
 
 }

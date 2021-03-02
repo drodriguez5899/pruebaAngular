@@ -1,5 +1,8 @@
+import { error } from '@angular/compiler/src/util';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { UsuariosService } from 'src/app/servicios/usuarios.service';
 import { dniValido, telefonoValido } from 'src/app/validaciones/validaciones';
 
 @Component({
@@ -8,47 +11,39 @@ import { dniValido, telefonoValido } from 'src/app/validaciones/validaciones';
   styleUrls: ['./registro.component.css']
 })
 export class RegistroComponent implements OnInit {
-  formRegister: FormGroup = new FormGroup ({
-    nombre: new FormControl('',[Validators.required,Validators.minLength(4)]),
-    apellidos: new FormControl('',[Validators.required,Validators.minLength(4)]),
-    password: new FormControl('',[Validators.required,Validators.minLength(8)]),
-    password2: new FormControl('',[Validators.required,Validators.minLength(8)]),
-    email: new FormControl('',[Validators.required,Validators.email]),
-    dni: new FormControl('',[Validators.required,dniValido()]),
-    telefono: new FormControl(undefined,[Validators.required,telefonoValido()]),
-
-
-  })
-  formRegister2 = this.fb.group({
-    nombre: ['',[Validators.required]],
-    apellidos: ['',[Validators.required]],
-    password: ['',[Validators.required]],
-    password2: ['',[Validators.required]],
-    email:['',[Validators.required]],
-    dni: ['',[Validators.required]],
-    telefono: [undefined,[Validators.required]]
-
+  mensaje:string
+  activado:boolean=false
+  formRegistro=this.fb.group({
+    nombre:['',[Validators.required, Validators.minLength(4)]],
+    apellidos:['',[Validators.required, Validators.minLength(4)]],
+    password:['',[Validators.required, Validators.minLength(8)]],
+    password2:['',[Validators.required]],
+    email:['', [Validators.required, Validators.email]],
+    telefono:[undefined, [telefonoValido()]],
+    dni:['',[Validators.required, dniValido()]]
   })
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb:FormBuilder, private servicioUsuario:UsuariosService, private irHacia:Router) { }
 
   ngOnInit(): void {
   }
-  evaluaForm():void{
-    console.log("Evaluando formulario")
-    console.log(this.formRegister.getRawValue())
-    if (this.formRegister.valid){
-      console.log("El formulario es correcto")
-    }else{
-      console.log("Lo que no has introducido no vale na")
-    }   
+  enviar():void{
+    if(this.formRegistro.value.password == this.formRegistro.value.password2){
+      this.servicioUsuario.registrar(this.formRegistro.value).subscribe(
+        respuesta =>{
+          console.log(respuesta)
+          this.servicioUsuario.guardarToken(respuesta)
+          this.irHacia.navigate(['perfil'])
+          this.activado=true
+          alert('Te Has registrado correctamente')
+        },
+        error =>{
+          console.log(error)
+          this.mensaje = error.error.error
+        }
+        
+      )
+    } else alert("las contraseñs no coinciden")
   }
-  get dni1(){return this.formRegister.get("dni")}
-  get nombre1(){return this.formRegister.get("nombre")}
-  get apellidos1(){return this.formRegister.get("apellidos")}
-  get password1(){return this.formRegister.get("password")}
-  get email1(){return this.formRegister.get("email")}
-  get telefono1(){return this.formRegister.get("telefono")}
-  get password2(){return this.formRegister.get("password2")}
 
 }

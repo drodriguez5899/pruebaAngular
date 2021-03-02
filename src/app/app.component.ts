@@ -11,6 +11,9 @@ import { slideInAnimation } from './app-routing-animation';
   ]
 })
 export class AppComponent {
+  title(title: any) {
+    throw new Error('Method not implemented.');
+  }
   prepareRoute(outlet: RouterOutlet){
     return outlet && outlet.activatedRouteData;
   }

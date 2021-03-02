@@ -1,68 +1,82 @@
-<nav style="background-color: black;" class="navbar navbar-expand-sm navbar-dark ">
-    <a class="navbar-brand" href="#"><img src='assets/imagenes/logo.png' width='60px'></a>
-    <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
-        aria-expanded="false" aria-label="Toggle navigation"></button>
-    <div class="collapse navbar-collapse" id="collapsibleNavId">
-        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-            <li class="nav-item ">
-                <a class="nav-link" routerLink = '/'>Drodriguez <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" routerLink = '/about'>About</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" routerLink = '/loteria'>Loteria</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" routerLink = '/calculadora'> <i class="fas fa-calculator"> Calculadora</i></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" routerLink = '/tuberias'>Tuberias</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" routerLink = '/estructuras'>Estructuas</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" routerLink = '/formulario'>Formulario</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" routerLink = '/crudlocal'><i class="far fa-sticky-note"> Crud Local</i></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" routerLink = '/crud'>Crud </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" routerLink = '/articulos'>Articulos</a>
-            </li>
-           
-       
-         
-        </ul>
-        <ul  class="navbar-nav  mt-2 mt-lg-0">
-            <ng-template [ngIf]='!fnLogged()' [ngIfElse]='salir'>           
-                <li class="nav-item">
-                    <a class="nav-link" routerLink = '/registro'>Registro</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" routerLink = '/login'> <i class="fas fa-sign-in-alt"> Login</i></a>
-                </li>
-            </ng-template>
 
-            <ng-template #salir>
-                <li class="nav-item">
-                    <a class="nav-link" routerLink = '/perfil'> <i class="fas fa-user"> Perfil</i> </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link"  routerLink = '/listado'> <i routerLinkActive=" fa-spin" class="fas fa-users"></i> Listar perfiles</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link"(click)="doLogout()" routerLink='.'> <i class="fas fa-sign-out-alt"> Logout</i></a>
-                </li>
-            </ng-template>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="dropdown">
+    <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+       
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav flex-column">
+            <li class="nav-item active">
+              <a class="nav-link" routerLink = ''>Inicio <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Destacados</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Otros</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Favoritos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Foro</a>
+            </li>
+                     
+          </ul>
+        </div>
+      </nav>
+      
+              
+    </div>
+   
+    
+</div>
+ 
+  
+    <div  class="collapse navbar-collapse" id="navbarSupportedContent"> 
+      <div  class="mr-auto">
+      </div>
+      <div  class="mr-auto">       
+        <h1 style="color: wheat;"> <img width="70px" src='assets/imagenes/logoF2.png'> &nbsp;&nbsp;     Festivales</h1>
+      </div>
+      <form class="form-inline my-2 my-lg-0" >
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>        
+      </form>     
+      
+      <ul  class="navbar-nav   mt-2 mt-lg-0">
+        <ng-template  [ngIf]='!fnLogged()' [ngIfElse]='salir'>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Iniciar Session
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" routerLink="/login">login</a>
+              <a class="dropdown-item" routerLink = '/registro'>Registrar</a>            
+            </div>
+          </li> 
+        </ng-template>
+        <ng-template  #salir>
+          <li class="nav-item">
+            <a class="nav-link" routerLink = '/perfil'> <i class="fas fa-user"> Perfil</i> </a>
+        </li>    
+        <li class="nav-item">
+            <a class="nav-link"(click)="doLogout()" routerLink='.'> <i class="fas fa-sign-out-alt"> Logout</i></a>
+        </li>
+        </ng-template>
+            
+         
+        
            
        
-          
-        </ul>
-       
+      </ul>
+      
+      
     </div>
-</nav>
+  </nav>
